@@ -1,0 +1,5 @@
+DISPLAY_ACTIVE_CATEGORIES_QRY = """select category_id as id,name,description FROM CATEGORIES where status='active' order by category_id;"""
+DISPLAY_PRODUCT_BY_CID_QRY = f"""SELECT p.product_id as "product id", p.name AS "product name", p.description, p.price || '₹' price, CONCAT(p.stock,' ',p.base_quantity) as stock, c.name AS "category name" FROM Products p JOIN Categories c ON p.category_id = c.category_id where c.category_id=%s;"""
+GET_CARTITEMS_BY_CARTID_QRY = "select * from cartitems where cart_id=%s;"
+GET_USERNAME_QRY = "select * from users where username=%s;"
+GET_CARTID_BY_UID_QRY ="select cart_id from cart where user_id=%s"

@@ -1,0 +1,7 @@
+VIEW_CATEGORIES_QRY = """select category_id as id,name,description,status,TO_CHAR(created_at, 'DD Mon YYYY, HH:MI AM') AS "created at",TO_CHAR(updated_at, 'DD Mon YYYY, HH:MI AM') AS "updated at", updated_by as "updated by" FROM CATEGORIES;"""
+UPDATE_CATEGORY_NAME_QRY = "UPDATE CATEGORIES SET NAME=%s,UPDATED_AT=CURRENT_TIMESTAMP,UPDATED_BY =%s where category_id=%s"
+UPDATE_CATEGORY_DESCRIPTION_QRY = "UPDATE CATEGORIES SET description=%s,UPDATED_AT=CURRENT_TIMESTAMP,UPDATED_BY =%s where category_id=%s;"
+GET_CATEGORIES_BY_CID_QRY = "select * from categories where category_id=%s;"
+DELETE_CATEGORY_BY_CID_QRY = "delete from Categories where category_id=%s;"
+ADD_NEW_CATEGORY_QRY = "INSERT INTO Categories (NAME,DESCRIPTION) VALUES (%s,%s);"
+DISPLAY_CATEGORIES_QRY = """select category_id as id,name,description,status,TO_CHAR(created_at, 'DD Mon YYYY, HH:MI AM') AS "created at",TO_CHAR(updated_at, 'DD Mon YYYY, HH:MI AM') AS "updated at", updated_by as "updated by" FROM CATEGORIES order by category_id;"""
